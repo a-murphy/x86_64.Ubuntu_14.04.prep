@@ -24,7 +24,23 @@ resources:
     pointer:
       sourceName: "drydock/u14"
     seed:
-      versionName: tip
+      versionName: master
+
+  - name: u14all_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14all
+      branch: master
+      buildOnTagPush: true
+
+  - name: u14all_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14all"
+    seed:
+      versionName: master
 
 jobs:
   - name: x86_64_Ubuntu_14_04_prep
@@ -40,6 +56,25 @@ jobs:
               ./buildImage.sh u14
             popd
       - OUT: u14_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: build_u14all
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14_img
+      - IN: u14all_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14all
+            popd
+      - OUT: u14all_img
     on_success:
       - script: echo 'on success !!!!!'
     on_failure:
