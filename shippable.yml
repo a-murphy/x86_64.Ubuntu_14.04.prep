@@ -1,0 +1,46 @@
+resources:
+  - name: x86_64_U_14_04_prep_src
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/x86_64.Ubuntu_14.04.prep
+      branch: master
+
+  - name: u14_dh_cli
+    type: cliConfig
+    integration: ric03uec-dockerhub
+
+  - name: u14_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14
+      branch: master
+      buildOnTagPush: true
+
+  - name: u14_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14"
+    seed:
+      versionName: tip
+
+jobs:
+  - name: x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14_dh_cli
+      - IN: u14_repo
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14
+            popd
+      - OUT: u14_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
