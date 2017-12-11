@@ -198,6 +198,8 @@ jobs:
 
   - name: all_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -217,6 +219,8 @@ jobs:
 
   - name: nodall_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -236,6 +240,8 @@ jobs:
 
   - name: pytall_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -255,6 +261,8 @@ jobs:
 
   - name: cloall_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -274,6 +282,8 @@ jobs:
 
   - name: golall_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -293,6 +303,8 @@ jobs:
 
   - name: javall_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -312,6 +324,8 @@ jobs:
 
   - name: scaall_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -331,6 +345,8 @@ jobs:
 
   - name: ruball_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -350,6 +366,8 @@ jobs:
 
   - name: phpall_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
@@ -369,6 +387,8 @@ jobs:
 
   - name: cppall_x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
