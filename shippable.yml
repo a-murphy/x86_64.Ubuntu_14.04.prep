@@ -420,6 +420,8 @@ jobs:
   ### Tagging u14 services
   - name: tag_push_x86_64_ubu_14_04
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_ubu_14_04_prep_src
         switch: off
