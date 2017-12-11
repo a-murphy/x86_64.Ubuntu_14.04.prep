@@ -16,7 +16,6 @@ resources:
     pointer:
       sourceName: dry-dock/u14
       branch: master
-      buildOnTagPush: true
 
   - name: u14_img
     type: image
@@ -32,13 +31,147 @@ resources:
     pointer:
       sourceName: dry-dock/u14all
       branch: master
-      buildOnTagPush: true
 
   - name: u14all_img
     type: image
     integration: shipDH
     pointer:
       sourceName: "drydock/u14all"
+    seed:
+      versionName: master
+
+  - name: u14nodall_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14nodall
+      branch: master
+
+  - name: u14nodall_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14nodall"
+    seed:
+      versionName: master
+
+  - name: u14pytall_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14pytall
+      branch: master
+
+  - name: u14pytall_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14pytall"
+    seed:
+      versionName: master
+
+  - name: u14cloall_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14cloall
+      branch: master
+
+  - name: u14cloall_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14cloall"
+    seed:
+      versionName: master
+
+  - name: u14golall_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14golall
+      branch: master
+
+  - name: u14golall_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14golall"
+    seed:
+      versionName: master
+
+  - name: u14javall_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14javall
+      branch: master
+
+  - name: u14javall_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14javall"
+    seed:
+      versionName: master
+
+  - name: u14scaall_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14scaall
+      branch: master
+
+  - name: u14scaall_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14scaall"
+    seed:
+      versionName: master
+
+  - name: u14ruball_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14ruball
+      branch: master
+
+  - name: u14ruball_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14ruball"
+    seed:
+      versionName: master
+
+  - name: u14phpall_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14phpall
+      branch: master
+
+  - name: u14phpall_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14phpall"
+    seed:
+      versionName: master
+
+  - name: u14cppall_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: dry-dock/u14cppall
+      branch: master
+
+  - name: u14cppall_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/u14cppall"
     seed:
       versionName: master
 
@@ -61,7 +194,7 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: build_u14all
+  - name: all_x86_64_Ubuntu_14_04_prep
     type: runSh
     steps:
       - IN: x86_64_U_14_04_prep_src
@@ -75,6 +208,177 @@ jobs:
               ./buildImage.sh u14all
             popd
       - OUT: u14all_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: nodall_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14all_img
+      - IN: u14nodall_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14nodall
+            popd
+      - OUT: u14nodall_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: pytall_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14all_img
+      - IN: u14pytall_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14pytall
+            popd
+      - OUT: u14pytall_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: cloall_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14all_img
+      - IN: u14cloall_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14cloall
+            popd
+      - OUT: u14cloall_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: golall_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14all_img
+      - IN: u14golall_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14golall
+            popd
+      - OUT: u14golall_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: javall_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14all_img
+      - IN: u14javall_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14javall
+            popd
+      - OUT: u14javall_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: scaall_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14javall_img
+      - IN: u14scaall_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14scaall
+            popd
+      - OUT: u14scaall_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: ruball_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14all_img
+      - IN: u14ruball_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14ruball
+            popd
+      - OUT: u14ruball_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: phpall_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14all_img
+      - IN: u14phpall_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14phpall
+            popd
+      - OUT: u14phpall_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: cppall_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: x86_64_U_14_04_prep_src
+        switch: off
+      - IN: u14all_img
+      - IN: u14cppall_repo
+      - IN: u14_dh_cli
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_U_14_04_prep_src")
+              ./buildImage.sh u14cppall
+            popd
+      - OUT: u14cppall_img
     on_success:
       - script: echo 'on success !!!!!'
     on_failure:
