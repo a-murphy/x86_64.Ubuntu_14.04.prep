@@ -178,6 +178,8 @@ resources:
 jobs:
   - name: x86_64_Ubuntu_14_04_prep
     type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
     steps:
       - IN: x86_64_U_14_04_prep_src
         switch: off
