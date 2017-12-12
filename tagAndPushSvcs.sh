@@ -1,11 +1,12 @@
 #!/bin/bash -e
 
-export CURR_JOB="tag_push_x86_64_ubu_14_04"
+export HUB_ORG=$1
+export GH_ORG=$2
+export SVCS_LIST=$3
+export CURR_JOB="tag_push_core"
 export UP_TAG_NAME="master"
 export RES_VER="rel_prod"
-export RES_GH_SSH="u14_gh_ssh"
-export HUB_ORG="drydock"
-export GH_ORG="dry-dock"
+export RES_GH_SSH="core_gh_ssh"
 
 set_job_context() {
   eval `ssh-agent -s`
@@ -121,7 +122,7 @@ tag_push_repo(){
 }
 
 process_services() {
-  for c in `cat services.txt`; do
+  for c in `cat $SVCS_LIST`; do
     export CONTEXT=$c
     export CONTEXT_IMAGE=$c
     export CONTEXT_REPO=$c

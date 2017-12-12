@@ -421,8 +421,51 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  ### Tagging u14 services
-  - name: tag_push_x86_64_ubu_14_04
+  - name: microbase_x86_64_ubu_14_04_prep
+    type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
+    steps:
+      - IN: core_prep_src
+        switch: off
+      - IN: core_dh_cli
+        switch: off
+      - IN: u14_img
+      - IN: microbase_repo
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "core_prep_src")
+              ./buildImage.sh microbase
+            popd
+      - OUT: microbase_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: admiral_x86_64_ubu_14_04_prep
+    type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
+    steps:
+      - IN: core_prep_src
+        switch: off
+      - IN: core_dh_cli
+        switch: off
+      - IN: microbase_img
+      - IN: admiral_repo
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "core_prep_src")
+              ./buildImage.sh admiral
+            popd
+      - OUT: admiral_img
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: dry_dh_x86_64_ubu_14_04_tag_push
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
@@ -481,7 +524,57 @@ jobs:
       - TASK:
         - script: |
             pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
-              ./tagAndPushSvcs.sh
+              ./tagAndPushSvcs.sh drydock dry-dock dhDrydock.txt
+            popd
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: ship_dh_x86_64_ubu_14_04_tag_push
+    type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
+    steps:
+      - IN: core_prep_src
+        switch: off
+      - IN: core_dh_cli
+        switch: off
+      - IN: core_gh_ssh
+        switch: off
+      - IN: microbase_img
+        switch: off
+      - IN: microbase_repo
+        switch: off
+      - IN: rel_prod
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "core_prep_src")
+              ./tagAndPushSvcs.sh drydock shippable dhShippable.txt
+            popd
+    on_success:
+      - script: echo 'on success !!!!!'
+    on_failure:
+      - script: echo 'Failed job .... :('
+
+  - name: admiral_ubu_14_04_tag_push
+    type: runSh
+    steps:
+      - IN: core_prep_src
+        switch: off
+      - IN: admiral_repo
+        switch: off
+      - IN: admiral_img
+        switch: off
+      - IN: core_gh_ssh
+        switch: off
+      - IN: core_dh_cli
+        switch: off
+      - IN: rel_prod
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "core_prep_src")
+              ./tagAndPushAdmiralImageRepo.sh
             popd
     on_success:
       - script: echo 'on success !!!!!'
