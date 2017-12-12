@@ -10,6 +10,10 @@ resources:
     type: cliConfig
     integration: ric03uec-dockerhub
 
+  - name: u14_gh_ssh
+    type: integration
+    integration: avi_gh_ssh
+
   - name: u14_repo
     type: gitRepo
     integration: avinci_gh
@@ -427,7 +431,7 @@ jobs:
         switch: off
       - IN: u14_dh_cli
         switch: off
-      - IN: avi_gh_ssh
+      - IN: u14_gh_ssh
         switch: off
       - IN: u14_img
         switch: off
@@ -477,7 +481,7 @@ jobs:
       - TASK:
         - script: |
             pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
-              ./tagAndPushSvcs.sh u14
+              ./tagAndPushSvcs.sh
             popd
     on_success:
       - script: echo 'on success !!!!!'
