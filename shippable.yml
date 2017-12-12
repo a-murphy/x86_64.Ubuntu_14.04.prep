@@ -453,13 +453,13 @@ jobs:
       - IN: core_dh_cli
         switch: off
       - IN: microbase_img
-      - IN: admiral_repo
+#      - IN: admiral_repo
       - TASK:
         - script: |
             pushd $(shipctl get_resource_state "core_prep_src")
               ./buildImage.sh admiral
             popd
-      - OUT: admiral_img
+#      - OUT: admiral_img
     on_success:
       - script: echo 'on success !!!!!'
     on_failure:
@@ -562,10 +562,10 @@ jobs:
     steps:
       - IN: core_prep_src
         switch: off
-      - IN: admiral_repo
-        switch: off
-      - IN: admiral_img
-        switch: off
+#      - IN: admiral_repo
+#        switch: off
+#      - IN: admiral_img
+#        switch: off
       - IN: core_gh_ssh
         switch: off
       - IN: core_dh_cli
