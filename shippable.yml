@@ -179,6 +179,36 @@ resources:
     seed:
       versionName: master
 
+  - name: microbase_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/microbase
+      branch: master
+
+  - name: microbase_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/microbase"
+    seed:
+      versionName: master
+
+  - name: admiral_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/admiral
+      branch: master
+
+  - name: admiral_img
+    type: image
+    integration: shipDH
+    pointer:
+      sourceName: "drydock/admiral"
+    seed:
+      versionName: master
+
 jobs:
   - name: x86_64_ubu_14_04_prep
     type: runSh
@@ -431,13 +461,13 @@ jobs:
       - IN: core_dh_cli
         switch: off
       - IN: u14_img
-      - IN: microbase_repo
+#      - IN: microbase_repo
       - TASK:
         - script: |
             pushd $(shipctl get_resource_state "core_prep_src")
               ./buildImage.sh microbase
             popd
-      - OUT: microbase_img
+#      - OUT: microbase_img
     on_success:
       - script: echo 'on success !!!!!'
     on_failure:
@@ -542,10 +572,10 @@ jobs:
         switch: off
       - IN: core_gh_ssh
         switch: off
-      - IN: microbase_img
-        switch: off
-      - IN: microbase_repo
-        switch: off
+#      - IN: microbase_img
+#        switch: off
+#      - IN: microbase_repo
+#        switch: off
       - IN: rel_prod
       - TASK:
         - script: |
