@@ -482,7 +482,7 @@ jobs:
         switch: off
       - IN: core_dh_cli
         switch: off
-      - IN: microbase_img
+#      - IN: microbase_img
 #      - IN: admiral_repo
       - TASK:
         - script: |
