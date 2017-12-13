@@ -456,48 +456,6 @@ jobs:
             popd
       - OUT: admiral_img
 
-  - name: ship_dh_x86_64_Ubuntu_14_04_tag_push
-    type: runSh
-    triggerMode: parallel
-    dependencyMode: strict
-    steps:
-      - IN: x86_64_Ubuntu_14_04_prep_repo
-        switch: off
-      - IN: u14_dh_cli
-        switch: off
-      - IN: u14_gh_ssh
-        switch: off
-      - IN: microbase_img
-        switch: off
-      - IN: microbase_repo
-        switch: off
-      - IN: rel_prod
-      - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./tagAndPushSvcs.sh drydock shippable dhShippable.txt ship_dh_x86_64_Ubuntu_14_04_tag_push
-            popd
-
-  - name: admiral_Ubuntu_14_04_tag_push
-    type: runSh
-    steps:
-      - IN: x86_64_Ubuntu_14_04_prep_repo
-        switch: off
-      - IN: admiral_repo
-        switch: off
-      - IN: admiral_img
-        switch: off
-      - IN: u14_gh_ssh
-        switch: off
-      - IN: u14_dh_cli
-        switch: off
-      - IN: rel_prod
-      - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./tagAndPushAdmiralImageRepo.sh
-            popd
-
   # TODO: move this job to x86_64 Ubuntu 14.04
   - name: reqExec_x86_64_Ubuntu_14_04_pack
     type: runSh
