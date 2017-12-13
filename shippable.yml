@@ -14,6 +14,19 @@ resources:
     type: integration
     integration: avi_gh_ssh
 
+  - name: u14_bits_access_cli
+    type: cliConfig
+    integration: aws_bits_access
+    pointer:
+      region: us-east-1
+
+  - name: u14_reqExec_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/reqExec
+      branch: master
+
   - name: u14_repo
     type: gitRepo
     integration: avinci_gh
@@ -226,10 +239,6 @@ jobs:
               ./buildImage.sh u14
             popd
       - OUT: u14_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: all_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -248,10 +257,6 @@ jobs:
               ./buildImage.sh u14all
             popd
       - OUT: u14all_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: nod_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -270,10 +275,6 @@ jobs:
               ./buildImage.sh u14nodall
             popd
       - OUT: u14nodall_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: pyt_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -292,10 +293,6 @@ jobs:
               ./buildImage.sh u14pytall
             popd
       - OUT: u14pytall_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: clo_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -314,10 +311,6 @@ jobs:
               ./buildImage.sh u14cloall
             popd
       - OUT: u14cloall_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: gol_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -336,10 +329,6 @@ jobs:
               ./buildImage.sh u14golall
             popd
       - OUT: u14golall_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: jav_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -358,10 +347,6 @@ jobs:
               ./buildImage.sh u14javall
             popd
       - OUT: u14javall_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: sca_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -380,10 +365,6 @@ jobs:
               ./buildImage.sh u14scaall
             popd
       - OUT: u14scaall_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: rub_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -402,10 +383,6 @@ jobs:
               ./buildImage.sh u14ruball
             popd
       - OUT: u14ruball_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: php_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -424,10 +401,6 @@ jobs:
               ./buildImage.sh u14phpall
             popd
       - OUT: u14phpall_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: cpp_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -446,10 +419,6 @@ jobs:
               ./buildImage.sh u14cppall
             popd
       - OUT: u14cppall_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: microbase_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -468,10 +437,6 @@ jobs:
               ./buildImage.sh microbase
             popd
       - OUT: microbase_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: admiral_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -490,10 +455,6 @@ jobs:
               ./buildImage.sh admiral
             popd
       - OUT: admiral_img
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: dry_dh_x86_64_Ubuntu_14_04_tag_push
     type: runSh
@@ -556,10 +517,7 @@ jobs:
             pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./tagAndPushSvcs.sh drydock dry-dock dhDrydock.txt
             popd
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
+
 
   - name: ship_dh_x86_64_Ubuntu_14_04_tag_push
     type: runSh
@@ -582,10 +540,6 @@ jobs:
             pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./tagAndPushSvcs.sh drydock shippable dhShippable.txt
             popd
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
 
   - name: admiral_Ubuntu_14_04_tag_push
     type: runSh
@@ -606,7 +560,18 @@ jobs:
             pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./tagAndPushAdmiralImageRepo.sh
             popd
-    on_success:
-      - script: echo 'on success !!!!!'
-    on_failure:
-      - script: echo 'Failed job .... :('
+
+  # TODO: move this job to x86_64 Ubuntu 14.04
+  - name: reqExec_x86_64_Ubuntu_14_04_pack
+    type: runSh
+    steps:
+      - IN: x86_64_Ubuntu_14_04_prep_repo
+        switch: off
+      - IN: u14_bits_access_cli
+        switch: off
+      - IN: u14_reqExec_repo
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+              ./buildAndPushReqExecArtifacts.sh
+            popd
