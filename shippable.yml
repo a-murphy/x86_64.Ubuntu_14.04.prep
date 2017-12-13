@@ -10,10 +10,6 @@ resources:
     type: cliConfig
     integration: ric03uec-dockerhub
 
-  - name: u14_gh_ssh
-    type: integration
-    integration: avi_gh_ssh
-
   - name: u14_bits_access_cli
     type: cliConfig
     integration: aws_bits_access
