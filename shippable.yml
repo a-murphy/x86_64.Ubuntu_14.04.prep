@@ -1,5 +1,5 @@
 resources:
-  - name: x86_64_ubu_14_04_prep_src
+  - name: x86_64_Ubuntu_14_04_prep_repo
     type: gitRepo
     integration: avinci_gh
     pointer:
@@ -210,19 +210,19 @@ resources:
       versionName: master
 
 jobs:
-  - name: x86_64_ubu_14_04_prep
+  - name: x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
       - IN: u14_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14
             popd
       - OUT: u14_img
@@ -231,12 +231,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: all_x86_64_ubu_14_04_prep
+  - name: all_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -244,7 +244,7 @@ jobs:
       - IN: u14all_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14all
             popd
       - OUT: u14all_img
@@ -253,12 +253,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: nod_x86_64_ubu_14_04_prep
+  - name: nod_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -266,7 +266,7 @@ jobs:
       - IN: u14nodall_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14nodall
             popd
       - OUT: u14nodall_img
@@ -275,12 +275,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: pyt_x86_64_ubu_14_04_prep
+  - name: pyt_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -288,7 +288,7 @@ jobs:
       - IN: u14pytall_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14pytall
             popd
       - OUT: u14pytall_img
@@ -297,12 +297,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: clo_x86_64_ubu_14_04_prep
+  - name: clo_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -310,7 +310,7 @@ jobs:
       - IN: u14cloall_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14cloall
             popd
       - OUT: u14cloall_img
@@ -319,12 +319,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: gol_x86_64_ubu_14_04_prep
+  - name: gol_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -332,7 +332,7 @@ jobs:
       - IN: u14golall_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14golall
             popd
       - OUT: u14golall_img
@@ -341,12 +341,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: jav_x86_64_ubu_14_04_prep
+  - name: jav_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -354,7 +354,7 @@ jobs:
       - IN: u14javall_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14javall
             popd
       - OUT: u14javall_img
@@ -363,12 +363,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: sca_x86_64_ubu_14_04_prep
+  - name: sca_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -376,7 +376,7 @@ jobs:
       - IN: u14scaall_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14scaall
             popd
       - OUT: u14scaall_img
@@ -385,12 +385,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: rub_x86_64_ubu_14_04_prep
+  - name: rub_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -398,7 +398,7 @@ jobs:
       - IN: u14ruball_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14ruball
             popd
       - OUT: u14ruball_img
@@ -407,12 +407,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: php_x86_64_ubu_14_04_prep
+  - name: php_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -420,7 +420,7 @@ jobs:
       - IN: u14phpall_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14phpall
             popd
       - OUT: u14phpall_img
@@ -429,12 +429,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: cpp_x86_64_ubu_14_04_prep
+  - name: cpp_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -442,7 +442,7 @@ jobs:
       - IN: u14cppall_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh u14cppall
             popd
       - OUT: u14cppall_img
@@ -451,20 +451,20 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: microbase_x86_64_ubu_14_04_prep
+  - name: microbase_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: core_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: core_dh_cli
+      - IN: u14_dh_cli
         switch: off
       - IN: u14_img
       - IN: microbase_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "core_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh microbase
             popd
       - OUT: microbase_img
@@ -473,20 +473,20 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: admiral_x86_64_ubu_14_04_prep
+  - name: admiral_x86_64_Ubuntu_14_04_prep
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: core_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: core_dh_cli
+      - IN: u14_dh_cli
         switch: off
       - IN: microbase_img
       - IN: admiral_repo
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "core_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./buildImage.sh admiral
             popd
       - OUT: admiral_img
@@ -495,12 +495,12 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: dry_dh_x86_64_ubu_14_04_tag_push
+  - name: dry_dh_x86_64_Ubuntu_14_04_tag_push
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: x86_64_ubu_14_04_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: u14_dh_cli
         switch: off
@@ -553,7 +553,7 @@ jobs:
       - IN: rel_prod
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "x86_64_ubu_14_04_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./tagAndPushSvcs.sh drydock dry-dock dhDrydock.txt
             popd
     on_success:
@@ -561,16 +561,16 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: ship_dh_x86_64_ubu_14_04_tag_push
+  - name: ship_dh_x86_64_Ubuntu_14_04_tag_push
     type: runSh
     triggerMode: parallel
     dependencyMode: strict
     steps:
-      - IN: core_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: core_dh_cli
+      - IN: u14_dh_cli
         switch: off
-      - IN: core_gh_ssh
+      - IN: u14_gh_ssh
         switch: off
       - IN: microbase_img
         switch: off
@@ -579,7 +579,7 @@ jobs:
       - IN: rel_prod
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "core_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./tagAndPushSvcs.sh drydock shippable dhShippable.txt
             popd
     on_success:
@@ -587,23 +587,23 @@ jobs:
     on_failure:
       - script: echo 'Failed job .... :('
 
-  - name: admiral_ubu_14_04_tag_push
+  - name: admiral_Ubuntu_14_04_tag_push
     type: runSh
     steps:
-      - IN: core_prep_src
+      - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
       - IN: admiral_repo
         switch: off
       - IN: admiral_img
         switch: off
-      - IN: core_gh_ssh
+      - IN: u14_gh_ssh
         switch: off
-      - IN: core_dh_cli
+      - IN: u14_dh_cli
         switch: off
       - IN: rel_prod
       - TASK:
         - script: |
-            pushd $(shipctl get_resource_state "core_prep_src")
+            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
               ./tagAndPushAdmiralImageRepo.sh
             popd
     on_success:
