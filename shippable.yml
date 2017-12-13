@@ -515,7 +515,7 @@ jobs:
       - TASK:
         - script: |
             pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./tagAndPushSvcs.sh drydock dry-dock dhDrydock.txt
+              ./tagAndPushSvcs.sh drydock dry-dock dhDrydock.txt dry_dh_x86_64_Ubuntu_14_04_tag_push
             popd
 
 
@@ -538,7 +538,7 @@ jobs:
       - TASK:
         - script: |
             pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./tagAndPushSvcs.sh drydock shippable dhShippable.txt
+              ./tagAndPushSvcs.sh drydock shippable dhShippable.txt ship_dh_x86_64_Ubuntu_14_04_tag_push
             popd
 
   - name: admiral_Ubuntu_14_04_tag_push

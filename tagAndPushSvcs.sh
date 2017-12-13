@@ -3,10 +3,10 @@
 export HUB_ORG=$1
 export GH_ORG=$2
 export SVCS_LIST=$3
-export CURR_JOB="tag_push_core"
+export CURR_JOB=$4
 export UP_TAG_NAME="master"
 export RES_VER="rel_prod"
-export RES_GH_SSH="core_gh_ssh"
+export RES_GH_SSH="u14_gh_ssh"
 
 set_job_context() {
   eval `ssh-agent -s`
