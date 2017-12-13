@@ -218,6 +218,66 @@ resources:
     seed:
       versionName: master
 
+  - name: nexec_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/nexec
+      branch: master
+
+  - name: nexec_img
+    type: image
+    integration: ecr_bits_push
+    pointer:
+      sourceName: "374168611083.dkr.ecr.us-east-1.amazonaws.com/nexec"
+    seed:
+      versionName: master
+
+  - name: api_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/api
+      branch: master
+
+  - name: api_img
+    type: image
+    integration: ecr_bits_push
+    pointer:
+      sourceName: "374168611083.dkr.ecr.us-east-1.amazonaws.com/api"
+    seed:
+      versionName: master
+
+  - name: www_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/www
+      branch: master
+
+  - name: www_img
+    type: image
+    integration: ecr_bits_push
+    pointer:
+      sourceName: "374168611083.dkr.ecr.us-east-1.amazonaws.com/www"
+    seed:
+      versionName: master
+
+  - name: mktg_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/mktg
+      branch: master
+
+  - name: mktg_img
+    type: image
+    integration: ecr_bits_push
+    pointer:
+      sourceName: "374168611083.dkr.ecr.us-east-1.amazonaws.com/mktg"
+    seed:
+      versionName: master
+
 jobs:
   - name: x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -466,3 +526,28 @@ jobs:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
             - ./buildAndPushReqExecArtifacts.sh
             - popd
+
+  - name: ecr_svcs_x86_64_Ubuntu_14_04_pack
+    type: runSh
+    steps:
+      - IN: x86_64_Ubuntu_14_04_prep_repo
+        switch: off
+      - IN: u14_bits_access_cli
+        switch: off
+        scopes:
+          - ecr
+      - IN: microbase_img
+        switch: off
+      - IN: mktg_repo
+      - IN: nexec_repo
+      - IN: api_repo
+      - IN: www_repo
+      - TASK:
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./genBuildImage.sh
+            - popd
+      - OUT: mktg_img
+      - OUT: nexec_img
+      - OUT: api_img
+      - OUT: www_img
