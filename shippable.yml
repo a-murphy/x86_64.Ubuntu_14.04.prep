@@ -527,7 +527,7 @@ jobs:
             - ./buildAndPushReqExecArtifacts.sh
             - popd
 
-  - name: ecr_svcs_x86_64_Ubuntu_14_04_pack
+  - name: ecr_svcs_x86_64_Ubuntu_14_04_prep
     type: runSh
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
@@ -551,3 +551,21 @@ jobs:
       - OUT: nexec_img
       - OUT: api_img
       - OUT: www_img
+
+  - name: micro_x86_64_Ubuntu_14_04_prep
+    type: runSh
+    steps:
+      - IN: micro_repo
+      - IN: execTemplates_repo
+      - IN: microbase_img
+      - IN: u14_bits_access_cli
+        scopes:
+          - ecr
+      - IN: u14_dh_cli
+      - TASK:
+          script:
+            - pushd $(shipctl get_resource_state "micro_repo")
+            - ./build.sh
+            - popd
+      - OUT: micro_img
+      - OUT: genexec_img
