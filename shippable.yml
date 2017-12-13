@@ -266,10 +266,10 @@ jobs:
       - IN: u14all_img
       - IN: u14nodall_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14nodall
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14nodall
+            - popd
       - OUT: u14nodall_img
 
   - name: pyt_x86_64_Ubuntu_14_04_prep
@@ -284,10 +284,10 @@ jobs:
       - IN: u14all_img
       - IN: u14pytall_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14pytall
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14pytall
+            - popd
       - OUT: u14pytall_img
 
   - name: clo_x86_64_Ubuntu_14_04_prep
