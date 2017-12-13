@@ -248,10 +248,10 @@ jobs:
       - IN: u14_img
       - IN: u14all_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14all
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14all
+            - popd
       - OUT: u14all_img
 
   - name: nod_x86_64_Ubuntu_14_04_prep
@@ -302,10 +302,10 @@ jobs:
       - IN: u14all_img
       - IN: u14cloall_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14cloall
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14cloall
+            - popd
       - OUT: u14cloall_img
 
   - name: gol_x86_64_Ubuntu_14_04_prep
@@ -320,10 +320,10 @@ jobs:
       - IN: u14all_img
       - IN: u14golall_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14golall
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14golall
+            - popd
       - OUT: u14golall_img
 
   - name: jav_x86_64_Ubuntu_14_04_prep
@@ -338,10 +338,10 @@ jobs:
       - IN: u14all_img
       - IN: u14javall_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14javall
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14javall
+            - popd
       - OUT: u14javall_img
 
   - name: sca_x86_64_Ubuntu_14_04_prep
@@ -356,10 +356,10 @@ jobs:
       - IN: u14javall_img
       - IN: u14scaall_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14scaall
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14scaall
+            - popd
       - OUT: u14scaall_img
 
   - name: rub_x86_64_Ubuntu_14_04_prep
@@ -374,10 +374,10 @@ jobs:
       - IN: u14all_img
       - IN: u14ruball_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14ruball
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14ruball
+            - popd
       - OUT: u14ruball_img
 
   - name: php_x86_64_Ubuntu_14_04_prep
@@ -392,10 +392,10 @@ jobs:
       - IN: u14all_img
       - IN: u14phpall_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14phpall
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14phpall
+            - popd
       - OUT: u14phpall_img
 
   - name: cpp_x86_64_Ubuntu_14_04_prep
@@ -410,10 +410,10 @@ jobs:
       - IN: u14all_img
       - IN: u14cppall_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14cppall
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14cppall
+            - popd
       - OUT: u14cppall_img
 
   - name: microbase_x86_64_Ubuntu_14_04_prep
@@ -428,10 +428,10 @@ jobs:
       - IN: u14_img
       - IN: microbase_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh microbase
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh microbase
+            - popd
       - OUT: microbase_img
 
   - name: admiral_x86_64_Ubuntu_14_04_prep
@@ -446,10 +446,10 @@ jobs:
       - IN: microbase_img
       - IN: admiral_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh admiral
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh admiral
+            - popd
       - OUT: admiral_img
 
   # TODO: move this job to x86_64 Ubuntu 14.04
@@ -462,7 +462,7 @@ jobs:
         switch: off
       - IN: u14_reqExec_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildAndPushReqExecArtifacts.sh
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildAndPushReqExecArtifacts.sh
+            - popd
