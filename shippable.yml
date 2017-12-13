@@ -230,10 +230,10 @@ jobs:
         switch: off
       - IN: u14_repo
       - TASK:
-        - script: |
-            pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-              ./buildImage.sh u14
-            popd
+          script:
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildImage.sh u14
+            - popd
       - OUT: u14_img
 
   - name: all_x86_64_Ubuntu_14_04_prep
