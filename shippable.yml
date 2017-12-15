@@ -524,7 +524,7 @@ jobs:
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-            - ./buildAndPushReqExecArtifacts.sh
+            - ./buildAndPushReqExecArtifacts.sh u14_reqExec_repo
             - popd
 
   - name: ecr_svcs_x86_64_Ubuntu_14_04_prep
