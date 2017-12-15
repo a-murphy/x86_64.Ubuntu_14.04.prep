@@ -9,7 +9,7 @@ export VERSION=master
 
 # reqExec
 export REQ_EXEC_PATH=$(shipctl get_resource_state $RES_REPO)
-export REQ_EXEC_PACKAGE_PATH="$REQEXEC_REPO_STATE/package/$ARCHITECTURE/$OS"
+export REQ_EXEC_PACKAGE_PATH="$REQ_EXEC_PATH/package/$ARCHITECTURE/$OS"
 
 # Binaries
 export REQ_EXEC_BINARY_DIR="/tmp/reqExec"
