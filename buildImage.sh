@@ -1,11 +1,11 @@
 #!/bin/bash -e
 
 export CONTEXT=$1
+export CURR_JOB=$2
 export HUB_ORG="drydock"
 export TAG_NAME="master"
 
 set_context() {
-  export CURR_JOB="build_"$CONTEXT
   export RES_REPO=$CONTEXT"_repo"
   export RES_REPO_UP=$(shipctl to_uppercase $RES_REPO)
   export RES_REPO_COMMIT=$(eval echo "$"$RES_REPO_UP"_COMMIT")
