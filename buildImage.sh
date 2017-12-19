@@ -7,8 +7,7 @@ export TAG_NAME="master"
 
 set_context() {
   export RES_REPO=$CONTEXT"_repo"
-  export RES_REPO_UP=$(shipctl to_uppercase $RES_REPO)
-  export RES_REPO_COMMIT=$(eval echo "$"$RES_REPO_UP"_COMMIT")
+  export RES_REPO_COMMIT=$(shipctl get_resource_version_key "$RES_REPO" "shaData.commitSha")
   export IMAGE_NAME=$(echo $CONTEXT | awk '{print tolower($0)}')
   export RES_IMAGE_OUT=$CONTEXT"_img"
   export BLD_IMG=$HUB_ORG/$IMAGE_NAME:$TAG_NAME
@@ -39,13 +38,15 @@ create_image() {
 
 create_out_state() {
   echo "Creating a state file for $RES_IMAGE_OUT"
-  echo versionName=$TAG_NAME > "$JOB_STATE/$RES_IMAGE_OUT.env"
-  echo IMG_REPO_COMMIT_SHA=$RES_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
-  echo BUILD_NUMBER=$BUILD_NUMBER >> "$JOB_STATE/$RES_IMAGE_OUT.env"
+  shipctl post_resource_state_multi "$RES_IMAGE_OUT" \
+  "versionName=$TAG_NAME \
+  IMG_REPO_COMMIT_SHA=$RES_REPO_COMMIT \
+  BUILD_NUMBER=$BUILD_NUMBER"
 
   echo "Creating a state file for $CURR_JOB"
-  echo versionName=$TAG_NAME > "$JOB_STATE/$CURR_JOB.env"
-  echo IMG_REPO_COMMIT_SHA=$RES_REPO_COMMIT >> "$JOB_STATE/$CURR_JOB.env"
+  shipctl post_resource_state_multi "$CURR_JOB" \
+  "versionName=$TAG_NAME \
+  IMG_REPO_COMMIT_SHA=$RES_REPO_COMMIT"
 }
 
 main() {
