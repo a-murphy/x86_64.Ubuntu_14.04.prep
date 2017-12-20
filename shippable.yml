@@ -278,6 +278,14 @@ resources:
     seed:
       versionName: master
 
+#  - name: genexec_img
+#    type: image
+#    integration: ecr_bits_push
+#    pointer:
+#      sourceName: "374168611083.dkr.ecr.us-east-1.amazonaws.com/genexec"
+#    seed:
+#      versionName: master
+
 jobs:
   - name: x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -568,4 +576,4 @@ jobs:
             - ./build.sh
             - popd
       - OUT: micro_img
-      - OUT: genexec_img
+#      - OUT: genexec_img
