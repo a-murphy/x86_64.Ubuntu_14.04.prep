@@ -563,7 +563,7 @@ jobs:
   - name: micro_x86_64_Ubuntu_14_04_prep
     type: runSh
     steps:
-      - IN: micro_repo
+#      - IN: micro_repo
       - IN: execTemplates_repo
       - IN: microbase_img
       - IN: u14_bits_access_cli
@@ -575,5 +575,5 @@ jobs:
             - pushd $(shipctl get_resource_state "micro_repo")
             - ./build.sh
             - popd
-      - OUT: micro_img
+#      - OUT: micro_img
       - OUT: genexec_img
