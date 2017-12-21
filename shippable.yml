@@ -23,6 +23,13 @@ resources:
       sourceName: shippable/reqExec
       branch: master
 
+  - name: u14_execTemplates_repo
+    type: gitRepo
+    integration: avinci_gh
+    pointer:
+      sourceName: shippable/execTemplates
+      branch: master
+
   - name: u14_repo
     type: gitRepo
     integration: avinci_gh
@@ -579,7 +586,7 @@ jobs:
     type: runSh
     steps:
       - IN: micro_repo
-      - IN: execTemplates_repo
+      - IN: u14_execTemplates_repo
       - IN: microbase_img
       - IN: u14_bits_access_cli
         scopes:
