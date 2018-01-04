@@ -569,7 +569,7 @@ jobs:
     triggerMode: parallel
     dependencyMode: strict
     runtime:
-      architecture: aarch64
+      architecture: x86_64
       os: Ubuntu_14.04
       container: false
     steps:
