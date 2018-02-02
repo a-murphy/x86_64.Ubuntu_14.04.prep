@@ -3,6 +3,9 @@
 export CONTEXT=$1
 export CURR_JOB=$2
 export HUB_ORG="drydock"
+if [ ! -z "$3" ]; then
+  HUB_ORG=$3
+fi
 export TAG_NAME="master"
 
 set_context() {
