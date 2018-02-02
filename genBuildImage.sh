@@ -43,13 +43,24 @@ create_out_state() {
 
 main() {
   echo "JOB_TRIGGERED_BY_NAME="$JOB_TRIGGERED_BY_NAME
+  declare -a images_to_build=()
 
   IFS='_' read -ra ARR <<< "$JOB_TRIGGERED_BY_NAME"
-  export CONTEXT=${ARR[0]}
+  if [ "${ARR[0]}" == "microbase" ]; then
+    images_to_build=("api" "www" "mktg" "nexec")
+  else
+    images_to_build=("${ARR[0]}")
+  fi
 
-  set_context
-  create_image
-  create_out_state
+  for image in "${images_to_build[@]}"
+  do
+    echo "building $image"
+    export CONTEXT=$image
+
+    set_context
+    create_image
+    create_out_state
+  done
 }
 
 main
