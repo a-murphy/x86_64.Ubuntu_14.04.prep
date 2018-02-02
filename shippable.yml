@@ -569,7 +569,6 @@ jobs:
         scopes:
           - ecr
       - IN: microbase_img
-        switch: off
       - IN: mktg_repo
       - IN: nexec_repo
       - IN: api_repo
