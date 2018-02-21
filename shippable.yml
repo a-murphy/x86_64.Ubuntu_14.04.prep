@@ -544,7 +544,6 @@ jobs:
             - popd
       - OUT: admiral_img
 
-  # TODO: move this job to x86_64 Ubuntu 14.04
   - name: reqExec_x86_64_Ubuntu_14_04_pack
     type: runSh
     steps:
@@ -557,6 +556,31 @@ jobs:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
             - ./buildAndPushReqExecArtifacts.sh u14_reqExec_repo
+            - popd
+
+  - name: reports_x86_64_Ubuntu_14_04_pack
+    type: runSh
+    triggerMode: parallel
+    dependencyMode: strict
+    steps:
+      - IN: x86_64_Ubuntu_14_04_prep_repo
+        switch: off
+      - IN: u14_bits_access_cli
+        switch: off
+      # Reports are unlikely to change too often, so manually build when required.
+      - IN: micro_repo
+        switch: off
+      - TASK:
+          runtime:
+            options:
+              imageName: drydock/u14golall
+              imageTag: v6.1.4
+          script:
+            # Note: gvm doesn't seem to load automatically, so add it to the PATH manually.
+            # Remove this if its not needed anymore.
+            - PATH="$PATH:/root/.gvm/gos/go1.9.2/bin"
+            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+            - ./buildAndPushReportsArtifacts.sh micro_repo
             - popd
 
   - name: ecr_svcs_x86_64_Ubuntu_14_04_prep
