@@ -20,18 +20,8 @@ export REPORTS_BINARY_TAR="reports-$VERSION-$ARCHITECTURE-$OS.tar.gz"
 export S3_BUCKET_BINARY_DIR="$ARTIFACTS_BUCKET/reports/$VERSION/"
 
 check_input() {
-  if [ -z "$ARCHITECTURE" ]; then
-    echo "Missing input parameter ARCHITECTURE"
-    exit 1
-  fi
-
-  if [ -z "$OS" ]; then
-    echo "Missing input parameter OS"
-    exit 1
-  fi
-
-  if [ -z "$ARTIFACTS_BUCKET" ]; then
-    echo "Missing input parameter ARTIFACTS_BUCKET"
+  if [ -z "$RES_REPO" ]; then
+    echo "Missing input parameter RES_REPO"
     exit 1
   fi
 }
