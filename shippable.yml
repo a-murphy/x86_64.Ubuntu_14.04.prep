@@ -3,7 +3,7 @@ resources:
     type: gitRepo
     integration: avinci_gh
     pointer:
-      sourceName: shippable/x86_64.Ubuntu_14.04.prep
+      sourceName: a-murphy/x86_64.Ubuntu_14.04.prep
       branch: master
 
   - name: u14_dh_cli
@@ -16,26 +16,26 @@ resources:
     pointer:
       region: us-east-1
 
-  - name: u14_reqExec_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/reqExec
-      branch: master
+#  - name: u14_reqExec_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/reqExec
+#      branch: master
 
-  - name: u14_execTemplates_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/execTemplates
-      branch: master
+#  - name: u14_execTemplates_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/execTemplates
+#      branch: master
 
-  - name: u14_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14
-      branch: master
+#  - name: u14_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14
+#      branch: master
 
   - name: u14_img
     type: image
@@ -45,12 +45,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14all_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14all
-      branch: master
+#  - name: u14all_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14all
+#      branch: master
 
   - name: u14all_img
     type: image
@@ -60,12 +60,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14nodall_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14nodall
-      branch: master
+#  - name: u14nodall_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14nodall
+#      branch: master
 
   - name: u14nodall_img
     type: image
@@ -75,12 +75,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14pytall_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14pytall
-      branch: master
+#  - name: u14pytall_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14pytall
+#      branch: master
 
   - name: u14pytall_img
     type: image
@@ -90,12 +90,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14cloall_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14cloall
-      branch: master
+#  - name: u14cloall_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14cloall
+#      branch: master
 
   - name: u14cloall_img
     type: image
@@ -105,12 +105,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14golall_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14golall
-      branch: master
+#  - name: u14golall_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14golall
+#      branch: master
 
   - name: u14golall_img
     type: image
@@ -120,12 +120,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14javall_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14javall
-      branch: master
+#  - name: u14javall_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14javall
+#      branch: master
 
   - name: u14javall_img
     type: image
@@ -135,12 +135,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14scaall_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14scaall
-      branch: master
+#  - name: u14scaall_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14scaall
+#      branch: master
 
   - name: u14scaall_img
     type: image
@@ -150,12 +150,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14ruball_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14ruball
-      branch: master
+#  - name: u14ruball_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14ruball
+#      branch: master
 
   - name: u14ruball_img
     type: image
@@ -165,12 +165,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14phpall_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14phpall
-      branch: master
+#  - name: u14phpall_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14phpall
+#      branch: master
 
   - name: u14phpall_img
     type: image
@@ -180,12 +180,12 @@ resources:
     seed:
       versionName: master
 
-  - name: u14cppall_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: dry-dock/u14cppall
-      branch: master
+#  - name: u14cppall_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: dry-dock/u14cppall
+#      branch: master
 
   - name: u14cppall_img
     type: image
@@ -195,12 +195,12 @@ resources:
     seed:
       versionName: master
 
-  - name: microbase_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/microbase
-      branch: master
+#  - name: microbase_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/microbase
+#      branch: master
 
   - name: microbase_img
     type: image
@@ -210,12 +210,12 @@ resources:
     seed:
       versionName: master
 
-  - name: admiral_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/admiral
-      branch: master
+#  - name: admiral_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/admiral
+#      branch: master
 
   - name: admiral_img
     type: image
@@ -225,12 +225,12 @@ resources:
     seed:
       versionName: master
 
-  - name: nexec_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/nexec
-      branch: master
+#  - name: nexec_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/nexec
+#      branch: master
 
   - name: nexec_img
     type: image
@@ -240,12 +240,12 @@ resources:
     seed:
       versionName: master
 
-  - name: api_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/api
-      branch: master
+#  - name: api_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/api
+#      branch: master
 
   - name: api_img
     type: image
@@ -255,12 +255,12 @@ resources:
     seed:
       versionName: master
 
-  - name: www_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/www
-      branch: master
+#  - name: www_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/www
+#      branch: master
 
   - name: www_img
     type: image
@@ -270,12 +270,12 @@ resources:
     seed:
       versionName: master
 
-  - name: mktg_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/mktg
-      branch: master
+#  - name: mktg_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/mktg
+#      branch: master
 
   - name: mktg_img
     type: image
@@ -293,12 +293,12 @@ resources:
     seed:
       versionName: master
 
-  - name: micro_repo
-    type: gitRepo
-    integration: avinci_gh
-    pointer:
-      sourceName: shippable/micro
-      branch: master
+#  - name: micro_repo
+#    type: gitRepo
+#    integration: avinci_gh
+#    pointer:
+#      sourceName: shippable/micro
+#      branch: master
 
   - name: micro_img
     type: image
@@ -316,9 +316,9 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
-      - IN: u14_repo
+#      - IN: u14_dh_cli
+#        switch: off
+#      - IN: u14_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -326,23 +326,23 @@ jobs:
             - popd
       - OUT: u14_img
 
-  - name: all_x86_64_Ubuntu_14_04_prep
-    type: runSh
-    triggerMode: parallel
-    dependencyMode: strict
-    steps:
-      - IN: x86_64_Ubuntu_14_04_prep_repo
-        switch: off
-      - IN: u14_dh_cli
-        switch: off
-      - IN: u14_img
-      - IN: u14all_repo
-      - TASK:
-          script:
-            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
-            - ./buildImage.sh u14all all_x86_64_Ubuntu_14_04_prep
-            - popd
-      - OUT: u14all_img
+#  - name: all_x86_64_Ubuntu_14_04_prep
+#    type: runSh
+#    triggerMode: parallel
+#    dependencyMode: strict
+#    steps:
+#      - IN: x86_64_Ubuntu_14_04_prep_repo
+#        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
+#      - IN: u14_img
+#      - IN: u14all_repo
+#      - TASK:
+#          script:
+#            - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
+#            - ./buildImage.sh u14all all_x86_64_Ubuntu_14_04_prep
+#            - popd
+#      - OUT: u14all_img
 
   - name: nod_x86_64_Ubuntu_14_04_prep
     type: runSh
@@ -351,10 +351,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14all_img
-      - IN: u14nodall_repo
+#      - IN: u14nodall_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -369,10 +369,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14all_img
-      - IN: u14pytall_repo
+#      - IN: u14pytall_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -387,10 +387,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14all_img
-      - IN: u14cloall_repo
+#      - IN: u14cloall_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -405,10 +405,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14all_img
-      - IN: u14golall_repo
+#      - IN: u14golall_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -423,10 +423,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14all_img
-      - IN: u14javall_repo
+#      - IN: u14javall_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -441,10 +441,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14javall_img
-      - IN: u14scaall_repo
+#      - IN: u14scaall_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -459,10 +459,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14all_img
-      - IN: u14ruball_repo
+#      - IN: u14ruball_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -479,10 +479,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14all_img
-      - IN: u14phpall_repo
+#      - IN: u14phpall_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -497,10 +497,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14all_img
-      - IN: u14cppall_repo
+#      - IN: u14cppall_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -515,10 +515,10 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_dh_cli
-        switch: off
+#      - IN: u14_dh_cli
+#        switch: off
       - IN: u14_img
-      - IN: microbase_repo
+#      - IN: microbase_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -533,12 +533,12 @@ jobs:
     steps:
       - IN: x86_64_Ubuntu_14_04_prep_repo
         switch: off
-      - IN: u14_bits_access_cli
-        switch: off
+#      - IN: u14_bits_access_cli
+#        switch: off
         scopes:
           - ecr
       - IN: microbase_img
-      - IN: admiral_repo
+#      - IN: admiral_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -553,7 +553,7 @@ jobs:
         switch: off
       - IN: u14_bits_access_cli
         switch: off
-      - IN: u14_reqExec_repo
+#      - IN: u14_reqExec_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -570,8 +570,8 @@ jobs:
       - IN: u14_bits_access_cli
         switch: off
       # Reports are unlikely to change too often, so manually build when required.
-      - IN: micro_repo
-        switch: off
+#      - IN: micro_repo
+#        switch: off
       - TASK:
           runtime:
             options:
@@ -595,10 +595,10 @@ jobs:
         scopes:
           - ecr
       - IN: microbase_img
-      - IN: mktg_repo
-      - IN: nexec_repo
-      - IN: api_repo
-      - IN: www_repo
+#      - IN: mktg_repo
+#      - IN: nexec_repo
+#      - IN: api_repo
+#      - IN: www_repo
       - TASK:
           script:
             - pushd $(shipctl get_resource_state "x86_64_Ubuntu_14_04_prep_repo")
@@ -613,7 +613,7 @@ jobs:
     type: runSh
     steps:
       - IN: micro_repo
-      - IN: u14_execTemplates_repo
+#      - IN: u14_execTemplates_repo
       - IN: microbase_img
       - IN: u14_bits_access_cli
         scopes:
